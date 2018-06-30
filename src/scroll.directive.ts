@@ -3,7 +3,7 @@ import { Directive, HostListener, Output, EventEmitter, Input } from '@angular/c
 export type ScrollEvent = {
   isReachingBottom: boolean,
   isReachingTop: boolean,
-  originalEvent: Event,
+  originalEvent: any,
   isWindowEvent: boolean
 };
 
@@ -20,16 +20,16 @@ export class ScrollDirective {
   constructor() { }
 
   // handle host scroll
-  @HostListener('scroll', ['$event']) public scrolled($event: Event) {
+  @HostListener('scroll', ['$event']) public scrolled($event: any) {
     this.elementScrollEvent($event);
   }
 
   // handle window scroll
-  @HostListener('window:scroll', ['$event']) public windowScrolled($event: Event) {
+  @HostListener('window:scroll', ['$event']) public windowScrolled($event: any) {
     this.windowScrollEvent($event);
   }
 
-  protected windowScrollEvent($event: Event) {
+  protected windowScrollEvent($event: any) {
     const target = <Document>$event.target;
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     const isReachingTop = scrollTop < this.topOffset;
@@ -38,7 +38,7 @@ export class ScrollDirective {
     this.onScroll.emit(emitValue);
   }
 
-  protected elementScrollEvent($event: Event) {
+  protected elementScrollEvent($event: any) {
     const target = <HTMLElement>$event.target;
     const scrollPosition = target.scrollHeight - target.scrollTop;
     const offsetHeight = target.offsetHeight;

@@ -1,5 +1,5 @@
-# ngx-scroll-event
-An Angular 2+ directive to emit an event if scroll occurs on an element or window.
+# ngx-scroll-event-universal
+An Angular 5+ directive to emit an event if scroll occurs on an element or window. It support Angular Universal Build.
 
 ## Features
 - Detect scroll on an element or window and emits an event, also calculates if the user is reaching the top/bottom of that element or not.
@@ -7,7 +7,7 @@ An Angular 2+ directive to emit an event if scroll occurs on an element or windo
 ## Install
 - With NPM
 ```sh
-npm install ngx-scroll-event --save
+npm install ngx-scroll-event-universal --save
 ```
 
 - With Yarn
@@ -75,3 +75,6 @@ export class AwesomeComponent {
   }
 }
 ```
+
+## Big Thanks
+- anasAsh the original repository code.
